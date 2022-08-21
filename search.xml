@@ -17,6 +17,12 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
+      <categories>
+        <category>Pages-Test</category>
+      </categories>
+      <tags>
+        <tag>Test</tag>
+      </tags>
   </entry>
   <entry>
     <title>测试01</title>
@@ -26,6 +32,17 @@
 <p><strong>不习惯</strong></p>
 <p>页面搭建进度：整体结构完成，完成较少部分的配置，也遇到一些冲突问题，与想达到的效果不同，后续将继续美化配置整改。</p>
 <p>这里将记录部分的笔记，一些日常见闻或者说说日志。</p>
+<hr>
+<p>8/21</p>
+<pre><code>next版本是8.12，配置了背景、圆角、标签等，因为版本问题，部分网上的配置方法部分不适用，需要注意。
+标签和分类等页面还没整，后续弄好。
+</code></pre>
 ]]></content>
+      <categories>
+        <category>Pages-Test</category>
+      </categories>
+      <tags>
+        <tag>Test</tag>
+      </tags>
   </entry>
 </search>
