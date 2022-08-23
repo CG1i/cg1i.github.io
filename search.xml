@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>测试01</title>
-    <url>/2022/08/20/%E6%B5%8B%E8%AF%9501/</url>
-    <content><![CDATA[<h3 id="测试记录"><a href="#测试记录" class="headerlink" title="测试记录"></a>测试记录</h3><pre><code>这里测试一次文字，原生语法不支持缩进
-</code></pre>
-<p><strong>不习惯</strong></p>
-<p>页面搭建进度：整体结构完成，完成较少部分的配置，也遇到一些冲突问题，与想达到的效果不同，后续将继续美化配置整改。<br><strong>这里将记录部分的笔记，一些日常见闻或者说说日志。</strong></p>
-<span id="more"></span>
-
-<hr>
-<p>8/21</p>
-<pre><code>next版本是8.12，配置了背景、圆角、标签等，因为版本问题，部分网上的配置方法部分不适用，下次需要注意。
-标签和分类等页面还没整，后续弄好。
-</code></pre>
-<hr>
-<p>8/22</p>
-<pre><code>解决了标签、分类页，后续将配置美化一下。尝试使用&lt;!--more--&gt;截断首页的文，先试试效果。  
-在翻译文件中解决了强力驱动的翻译问题，不翻译就用英文更顺眼一些。  
-字体等细节后面慢慢整了。后续开始推一些笔记试试水，不过大部分都是word格式的，是个问题，待解决。后面看看别的框架，个人还是word格式习惯(ง •_•)ง
-</code></pre>
-]]></content>
-      <categories>
-        <category>Pages-Test</category>
-      </categories>
-      <tags>
-        <tag>Test</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
     <url>/2022/08/18/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -52,6 +24,46 @@
       </categories>
       <tags>
         <tag>Test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>测试01</title>
+    <url>/2022/08/20/%E6%B5%8B%E8%AF%9501/</url>
+    <content><![CDATA[<h3 id="测试记录"><a href="#测试记录" class="headerlink" title="测试记录"></a>测试记录</h3><pre><code>这里测试一次文字，原生语法不支持缩进
+</code></pre>
+<p><strong>真不习惯</strong></p>
+<p>页面搭建进度：整体结构完成，完成较少部分的配置，也遇到一些冲突问题，与想达到的效果不同，后续将继续美化配置整改。<br><strong>这里将记录部分的笔记，一些日常见闻或者说说日志。</strong></p>
+<span id="more"></span>
+
+<hr>
+<p>8/21</p>
+<p>next版本是8.12，配置了背景、圆角、标签等，因为版本问题，部分网上的配置方法部分不适用，下次需要注意。<br>标签和分类等页面还没整，后续弄好。</p>
+<hr>
+<p>8/22</p>
+<p>解决了标签、分类页，后续将配置美化一下。尝试使用<!--more-->截断首页的文，先试试效果。<br>    在翻译文件中解决了强力驱动的翻译问题，不翻译就用英文更顺眼一些。<br>    字体等细节后面慢慢整了。后续开始推一些笔记试试水。不过大部分都是word格式的，是个问题，待解决。后面看看别的框架，个人还是word格式 ╯︿╰</p>
+<hr>
+<p>8/23</p>
+<blockquote>
+<p>熟悉了一些markdown的语法，得用HTML代码解决一些格式问题，后面整理一下，防止忘了。貌似word格式难解决，摸了。  </p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Pages-Test</category>
+      </categories>
+      <tags>
+        <tag>Test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>部分格式语法</title>
+    <url>/2022/08/23/%E9%83%A8%E5%88%86%E6%A0%BC%E5%BC%8F%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h3 id="部分markdown语法以及HTML代码"><a href="#部分markdown语法以及HTML代码" class="headerlink" title="部分markdown语法以及HTML代码"></a>部分markdown语法以及HTML代码</h3>]]></content>
+      <categories>
+        <category>Pages-Test</category>
+      </categories>
+      <tags>
+        <tag>Test</tag>
+        <tag>md语法</tag>
       </tags>
   </entry>
 </search>
