@@ -185,7 +185,7 @@ body {
   box-sizing: border-box;
   color: var(--text-color);
   font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  font-size: 1em;
+  font-size: 0.875em;
   line-height: 2;
   min-height: 100%;
   position: relative;
@@ -1547,6 +1547,9 @@ header.header {
   animation: icon-animate 1.33s ease-in-out infinite;
 }
 .busuanzi-count #busuanzi_container_site_uv {
+  display: none;
+}
+.busuanzi-count #busuanzi_container_site_pv {
   display: none;
 }
 @-moz-keyframes icon-animate {

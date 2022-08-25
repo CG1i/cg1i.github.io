@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>测试01</title>
+    <url>/2022/08/20/%E6%B5%8B%E8%AF%9501/</url>
+    <content><![CDATA[<h3 id="测试记录"><a href="#测试记录" class="headerlink" title="测试记录"></a>测试记录</h3><pre><code>这里测试一次文字，原生语法不支持缩进
+</code></pre>
+<p><strong>真不习惯</strong></p>
+<p>页面搭建进度：整体结构完成，完成较少部分的配置，也遇到一些冲突问题，与想达到的效果不同，后续将继续美化配置整改。<br><strong>这里将记录部分的笔记，一些日常见闻或者说说日志。</strong></p>
+<span id="more"></span>
+
+<hr>
+<p>8/21</p>
+<p>next版本是8.12，配置了背景、圆角、标签等，因为版本问题，部分网上的配置方法部分不适用，下次需要注意。<br>标签和分类等页面还没整，后续弄好。</p>
+<hr>
+<p>8/22</p>
+<p>解决了标签、分类页，后续将配置美化一下。尝试使用<!--more-->截断首页的文，先试试效果。<br>    在翻译文件中解决了强力驱动的翻译问题，不翻译就用英文更顺眼一些。<br>    字体等细节后面慢慢整了。后续开始推一些笔记试试水。不过大部分都是word格式的，是个问题，待解决。后面看看别的框架，个人还是word格式 ╯︿╰</p>
+<hr>
+<p>8/23</p>
+<blockquote>
+<p>熟悉了一些markdown的语法，得用HTML代码解决一些格式问题，后面整理一下，防止忘了。貌似word格式难解决，摸了。  </p>
+</blockquote>
+<hr>
+<p>8/25</p>
+<blockquote>
+<p>解决了部分字体问题，只是修改了size-base，整的看别的字也有变小的。后面再细修。可以传一些东西了。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Pages-Test</category>
+      </categories>
+      <tags>
+        <tag>Test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3防御攻击</title>
+    <url>/2022/08/25/3%E9%98%B2%E5%BE%A1%E6%94%BB%E5%87%BB/</url>
+    <content><![CDATA[<h3 id="3-2-防御攻击的技术"><a href="#3-2-防御攻击的技术" class="headerlink" title="3.2 防御攻击的技术"></a>3.2 防御攻击的技术</h3><p><strong>ALSR</strong>(Adress Space Layout Randomization)地址空间分布随机化，是一种对栈、模块、动态分布的内存空间等的地址进行随机化配置的机制。<br>属于操作系统的功能。<br>通过/proc/sys/kernel/randomize_va_space (Linux) 配置。</p>
+<ul>
+<li>0：禁用</li>
+<li>1：除堆以外随机化</li>
+<li>2：全部随机化（默认）</li>
+</ul>
+<span id="more"></span>
+
+<p><strong>Exec-Shield</strong> 是一种通过“限制内存空间的读写和执行权限”来防御攻击的机制。</p>
+<p><strong>StackGuard</strong> 是一种在编译时在各函数入口和出口插入用于检测栈数据完整性的机器语言代码的方法。<br>属于编译器的安全机制。<br>StackGuard机制所保护的是 ebp和 ret_addr，是一种针对典型栈缓冲区溢出攻击的防御手段。<br>gcc默认开启StackGuard，编译时加上 -fno-stack-protector 参数可以关闭StackGuard。</p>
+<h3 id="3-3绕开安全机制的技术"><a href="#3-3绕开安全机制的技术" class="headerlink" title="3.3绕开安全机制的技术"></a>3.3绕开安全机制的技术</h3><p><strong>Return-into-libc</strong> 是一种破解 Exec-Shield 的方法，思路是“即便无法执行任意代码（shellcode），最终只要能够运行任意程序，也可以夺取系统权限”。<br>基本原理是通过调整参数和栈的配置，是的程序能够跳转到 libc.so 中的 system 函数以及 exec 类函数，借此来运行 /bin/sh 等程序。<br>ldd 命令查看程序运行时所加载的库。</p>
+<p><strong>ROP</strong>（Return-Oriented-Programming,面向返回编程）利用未随机化的模块内部的汇编代码进行攻击。</p>
+]]></content>
+      <categories>
+        <category>PWN</category>
+      </categories>
+      <tags>
+        <tag>PWN</tag>
+        <tag>学习笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2022/08/18/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -27,37 +84,40 @@
       </tags>
   </entry>
   <entry>
-    <title>测试01</title>
-    <url>/2022/08/20/%E6%B5%8B%E8%AF%9501/</url>
-    <content><![CDATA[<h3 id="测试记录"><a href="#测试记录" class="headerlink" title="测试记录"></a>测试记录</h3><pre><code>这里测试一次文字，原生语法不支持缩进
-</code></pre>
-<p><strong>真不习惯</strong></p>
-<p>页面搭建进度：整体结构完成，完成较少部分的配置，也遇到一些冲突问题，与想达到的效果不同，后续将继续美化配置整改。<br><strong>这里将记录部分的笔记，一些日常见闻或者说说日志。</strong></p>
-<span id="more"></span>
-
-<hr>
-<p>8/21</p>
-<p>next版本是8.12，配置了背景、圆角、标签等，因为版本问题，部分网上的配置方法部分不适用，下次需要注意。<br>标签和分类等页面还没整，后续弄好。</p>
-<hr>
-<p>8/22</p>
-<p>解决了标签、分类页，后续将配置美化一下。尝试使用<!--more-->截断首页的文，先试试效果。<br>    在翻译文件中解决了强力驱动的翻译问题，不翻译就用英文更顺眼一些。<br>    字体等细节后面慢慢整了。后续开始推一些笔记试试水。不过大部分都是word格式的，是个问题，待解决。后面看看别的框架，个人还是word格式 ╯︿╰</p>
-<hr>
-<p>8/23</p>
-<blockquote>
-<p>熟悉了一些markdown的语法，得用HTML代码解决一些格式问题，后面整理一下，防止忘了。貌似word格式难解决，摸了。  </p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Pages-Test</category>
-      </categories>
-      <tags>
-        <tag>Test</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>部分格式语法</title>
     <url>/2022/08/23/%E9%83%A8%E5%88%86%E6%A0%BC%E5%BC%8F%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<h3 id="部分markdown语法以及HTML代码"><a href="#部分markdown语法以及HTML代码" class="headerlink" title="部分markdown语法以及HTML代码"></a>部分markdown语法以及HTML代码</h3>]]></content>
+    <content><![CDATA[<h3 id="部分markdown语法以及HTML代码"><a href="#部分markdown语法以及HTML代码" class="headerlink" title="部分markdown语法以及HTML代码"></a>部分markdown语法以及HTML代码</h3><blockquote>
+<p>所有的语法效果都会在对应章节使用。</p>
+</blockquote>
+<h4 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h4><p>&emsp;&emsp;markdown不能用tab缩进就很难受，搜了一下，要使用HTML代码。  </p>
+<p>&emsp;&emsp;用 <code>&amp;emsp;</code> 或 <code>&amp;#8195;</code> (注意有分号)可以占两个空格，连用两个就可空四个空格，达到中文缩进的效果。</p>
+<p>&emsp;&emsp;另外，<code>&amp;ensp;</code> 或 <code>&amp;#8194;</code> 可以占一个空格，连用四个也是一样的。 </p>
+<p>&emsp;&emsp;不换行空格用：<code>&amp;nbsp;</code> 或 <code>&amp;#160;</code> 也是占一格。</p>
+<span id="more"></span>
+
+
+<h4 id="居中"><a href="#居中" class="headerlink" title="居中"></a>居中</h4><p>居中对齐的排布还是用HTML。（以后就直接写HTML算了）</p>
+<pre><code>用 &lt;center&gt; 和 &lt;/center&gt; 就可以居中对齐
+</code></pre>
+<center>或者</center>  
+  
+<pre><code>用&lt;p align=&quot;center&quot;&gt; ... &lt;/p&gt;居中
+</code></pre>
+<h4 id="markdown的语法"><a href="#markdown的语法" class="headerlink" title="markdown的语法"></a>markdown的语法</h4><p><strong>代码效果</strong></p>
+<p>使用反引号 ` 包含住需要展示的code，就可以出现<code>code</code>展示效果。</p>
+<pre><code>使用tab制表符可以实现代码块效果。
+</code></pre>
+<p><strong>区块</strong></p>
+<blockquote>
+<p>段落开头使用右尖括号<code>&gt;</code>,再跟一个空格可以引用区块</p>
+<blockquote>
+<p>区块可以嵌套，多一个 <code>&gt;</code> 就多一层</p>
+<blockquote>
+<p>这是最后一层，使用了 <code>&gt;&gt;&gt;</code></p>
+</blockquote>
+</blockquote>
+</blockquote>
+]]></content>
       <categories>
         <category>Pages-Test</category>
       </categories>
