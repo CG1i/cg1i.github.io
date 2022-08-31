@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ico-50.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ico-25.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="主要是想细致的学习一下二进制，正好手里有这本书就先拿出来看了，后面再看别的视频或书啥的吧，学这个还是得多动手。书里的示例操作我都会做一遍，流程写的很细所以这里就不再记了，可能有些章节重点都是操作，那就没啥记的了。有些知识的拓展习惯记在note上了，以后有空再另整理吧。  1通过逆向工程学习如何读懂二进制代码1.1 体验一下软件分析分析要点：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有趣的二进制【1】">
+<meta property="og:url" content="http://example.com/2022/08/31/%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E3%80%901%E3%80%91/index.html">
+<meta property="og:site_name" content="CG1i">
+<meta property="og:description" content="主要是想细致的学习一下二进制，正好手里有这本书就先拿出来看了，后面再看别的视频或书啥的吧，学这个还是得多动手。书里的示例操作我都会做一遍，流程写的很细所以这里就不再记了，可能有些章节重点都是操作，那就没啥记的了。有些知识的拓展习惯记在note上了，以后有空再另整理吧。  1通过逆向工程学习如何读懂二进制代码1.1 体验一下软件分析分析要点：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/2022/202208312125.png">
+<meta property="article:published_time" content="2022-08-31T13:30:58.000Z">
+<meta property="article:modified_time" content="2022-08-31T13:42:58.947Z">
+<meta property="article:author" content="CG1i">
+<meta property="article:tag" content="PWN">
+<meta property="article:tag" content="学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/2022/202208312125.png">
+
+
+<link rel="canonical" href="http://example.com/2022/08/31/%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E3%80%901%E3%80%91/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/31/%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E3%80%901%E3%80%91/","path":"2022/08/31/有趣的二进制【1】/","title":"有趣的二进制【1】"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>有趣的二进制【1】 | CG1i</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">CG1i</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1%E9%80%9A%E8%BF%87%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E5%AD%A6%E4%B9%A0%E5%A6%82%E4%BD%95%E8%AF%BB%E6%87%82%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%BB%A3%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">1通过逆向工程学习如何读懂二进制代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E4%BD%93%E9%AA%8C%E4%B8%80%E4%B8%8B%E8%BD%AF%E4%BB%B6%E5%88%86%E6%9E%90"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.1 体验一下软件分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E5%B0%9D%E8%AF%95%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90"><span class="nav-number">1.0.2.</span> <span class="nav-text">1.2 尝试静态分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3%E5%B0%9D%E8%AF%95%E5%8A%A8%E6%80%81%E5%88%86%E6%9E%90"><span class="nav-number">1.0.3.</span> <span class="nav-text">1.3尝试动态分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%E5%AD%A6%E4%B9%A0%E6%9C%80%E5%9F%BA%E7%A1%80%E7%9A%84%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4"><span class="nav-number">1.0.4.</span> <span class="nav-text">1.4 学习最基础的汇编指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-%E9%80%9A%E8%BF%87%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E6%B4%9E%E5%AF%9F%E7%A8%8B%E5%BA%8F%E8%A1%8C%E4%B8%BA"><span class="nav-number">1.0.5.</span> <span class="nav-text">1.5 通过汇编指令洞察程序行为</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CG1i"
+      src="/images/pic01.jpg">
+  <p class="site-author-name" itemprop="name">CG1i</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CG1i" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CG1i" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/31/%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E3%80%901%E3%80%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/pic01.jpg">
+      <meta itemprop="name" content="CG1i">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CG1i">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="有趣的二进制【1】 | CG1i">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          有趣的二进制【1】
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-08-31 21:30:58 / 修改时间：21:42:58" itemprop="dateCreated datePublished" datetime="2022-08-31T21:30:58+08:00">2022-08-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/PWN/" itemprop="url" rel="index"><span itemprop="name">PWN</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p><em>主要是想细致的学习一下二进制，正好手里有这本书就先拿出来看了，后面再看别的视频或书啥的吧，学这个还是得多动手。书里的示例操作我都会做一遍，流程写的很细所以这里就不再记了，可能有些章节重点都是操作，那就没啥记的了。有些知识的拓展习惯记在note上了，以后有空再另整理吧。</em></p>
+</blockquote>
+<h1 id="1通过逆向工程学习如何读懂二进制代码"><a href="#1通过逆向工程学习如何读懂二进制代码" class="headerlink" title="1通过逆向工程学习如何读懂二进制代码"></a>1通过逆向工程学习如何读懂二进制代码</h1><h3 id="1-1-体验一下软件分析"><a href="#1-1-体验一下软件分析" class="headerlink" title="1.1 体验一下软件分析"></a>1.1 体验一下软件分析</h3><p>分析要点：</p>
+<span id="more"></span>
+
+<ul>
+<li>文件的创建、修改和删除</li>
+<li>注册表项目的创建、修改和删除</li>
+<li>网络通信</li>
+</ul>
+<p>工具：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.winhex.com/winhex/">WinHex</a> (二进制编辑器，书中用的Stirling是日文软件，换了)</li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/sysinternals/downloads/procmon">Process Monitor</a>（文件和注册表监控）</li>
+<li><a target="_blank" rel="noopener" href="https://www.wireshark.org/">Wireshark</a>（网络监控）</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/shyujikou/binarybook">书中涉及到的示例文件和源代码项目地址</a> （部分文件会被杀软报毒）</p>
+<blockquote>
+<p>对软件进行分析并搞清楚其行为的工作就是“逆向工程”。逆向工程是指一般意义上的软件分析，其对象不仅限于恶意软件，因此也不一定和计算机安全有关。</p>
+</blockquote>
+<h3 id="1-2-尝试静态分析"><a href="#1-2-尝试静态分析" class="headerlink" title="1.2 尝试静态分析"></a>1.2 尝试静态分析</h3><p>软件分析从方法上分为两种：</p>
+<ul>
+<li>静态分析：在不运行目标程序的情况下进行分析</li>
+<li>动态分析：在允许目标程序的同时进行分析</li>
+</ul>
+<p>静态分析主要包括：</p>
+<ul>
+<li>阅读反汇编代码</li>
+<li>提取可执行文件中的字符串，分析使用了哪些单词</li>
+</ul>
+<p>使用二进制编辑器查看可执行文件的内容也算作一种静态分析。</p>
+<p>反汇编工具：<a target="_blank" rel="noopener" href="https://hex-rays.com/download-center/">IDA Free</a>(免费版)<br>（免费版的性能差不多够用了，需要记一些常用的功能快捷键。）</p>
+<h3 id="1-3尝试动态分析"><a href="#1-3尝试动态分析" class="headerlink" title="1.3尝试动态分析"></a>1.3尝试动态分析</h3><p>动态分析是在目标程序运行的同时跟踪其行为的方法，主要用调试器来跟踪程序逻辑，其他动态分析方法：</p>
+<ul>
+<li>获取文件和注册表访问日志</li>
+<li>抓取网络包</li>
+</ul>
+<p><strong>Process Monitor</strong>监控工具分析目标程序，通过设置过滤规则，可以输出文件和注册表的访问日志。</p>
+<p><a target="_blank" rel="noopener" href="https://www.ollydbg.de/"><strong>OllyDbg</strong></a>调试器可以进一步跟踪程序逻辑。</p>
+<p>调试器是一种帮助发现程序问题和bug的软件，一般来说至少应具备以下功能：</p>
+<ul>
+<li>断点</li>
+<li>单步跳入、跳出</li>
+<li>查看寄存器和内存数据</li>
+</ul>
+<blockquote>
+<p>断点是能够让程序在任意位置中断、恢复运行的功能，可以帮助寻找导致问题的程序逻辑。<br>断点能够在任意文字中断和恢复运行，而每执行一条指令都中断一次就叫做单步跳入或跳出。通过单步运行功能，可以以一条指令或者一行代码或单位逐个运行程序中的逻辑，仔细确认内存和变量的状态。跳入和跳出的区别如下：</p>
+<blockquote>
+<p>跳入：调用函数时进入函数内部<br>跳出：调用函数时不进入函数内部，而是将函数调用作为一条指令来执行</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>查看寄存器和内存数据功能可以在程序中断运行的状态下确认寄存器、内存和变量的状态。</p>
+</blockquote>
+<p>OllyDbg可以洞察程序的详细逻辑。</p>
+<p><img src="/images/2022/202208312125.png" alt="OllyDbg 界面"></p>
+<p>地址跳转：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">反汇编窗口内按 Ctrl + G</span><br><span class="line">右键菜单中点击 Go To -&gt; Expression</span><br></pre></td></tr></table></figure>
+<p>设置断点：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">选中地址所在行，按F2</span><br><span class="line">右键菜单选择 Breakpoint -&gt; Toggle</span><br></pre></td></tr></table></figure>
+<p>运行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">按F9</span><br><span class="line">菜单栏中点击 Debug -&gt; Run</span><br></pre></td></tr></table></figure>
+<p>其他：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">F7 表示单步跳入</span><br><span class="line">F8 表示单步跳出</span><br><span class="line">Ctrl + A 表示重新分析程序代码</span><br><span class="line">Ctrl + F9 表示运行至Return处</span><br><span class="line">Alt + F9 表示运行至用户代码处</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>Windows环境下的几个调试器：</p>
+<ul>
+<li>OllyDbg</li>
+<li><a target="_blank" rel="noopener" href="http://www.immunityinc.com/products/debugger/">Immunityh Debugger</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows-hardware/drivers/debugger/">WinDbg</a></li>
+</ul>
+<p>Immunity Debugger 也和 OllyDbg 一样具备图形用<br>户界面，Immunity Debugger 和 Python 的亲和性较高，WinDbg能够对系统内核领域的程序进行调试,在分析像 Rootkit 这样在 Windows内核中运行的恶意程序时也需要它。</p>
+<h3 id="1-4-学习最基础的汇编指令"><a href="#1-4-学习最基础的汇编指令" class="headerlink" title="1.4 学习最基础的汇编指令"></a>1.4 学习最基础的汇编指令</h3><p>书中列举的常见汇编指令</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>示例</th>
+<th>含义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MOV</td>
+<td>MOV EAX,ECX</td>
+<td>EAX = ECX</td>
+<td>将ECX的值存入EAX</td>
+</tr>
+<tr>
+<td>ADD</td>
+<td>ADD EAX,ECX</td>
+<td>EAX += ECX</td>
+<td>将EAX的值加上ECX的值</td>
+</tr>
+<tr>
+<td>SUB</td>
+<td>SUB EAX,ECX</td>
+<td>EAX -= ECX</td>
+<td>将EAX的值减去ECX的值</td>
+</tr>
+<tr>
+<td>INC</td>
+<td>INC EAX</td>
+<td>EAX ++</td>
+<td>将EAX的值加1</td>
+</tr>
+<tr>
+<td>DEC</td>
+<td>DEC EAX</td>
+<td>EAX -</td>
+<td>将EAX的值减1</td>
+</tr>
+<tr>
+<td>LEA</td>
+<td>LEA EAX,[ECX+4]</td>
+<td>EAX = ECX+4</td>
+<td>将ECX+4的值存入EAX</td>
+</tr>
+<tr>
+<td>CMP</td>
+<td>CMP EAX,ECX</td>
+<td>if(EAX==ECX)<br>&emsp;ZF=1<br>else<br>&emsp;ZF=0</td>
+<td>对两个值进行比较并根据结果设置标至<br>若EAX与ECX相同，则ZF=1<br>若EAX与ECX不同，则ZF=0</td>
+</tr>
+<tr>
+<td>TEST</td>
+<td>TEST EAX,EAX</td>
+<td>if(EAX==0)<br>&emsp;ZF=1<br>else<br>&emsp;ZF=0</td>
+<td>将值与0进行比较并根据结果设置标志<br>若EAX位0，则ZF=1<br>若EAX不为0，则ZF=0</td>
+</tr>
+<tr>
+<td>JE(JZ)</td>
+<td>JE 04001000</td>
+<td>if(ZF==1)<br>&emsp;GOTO 04001000</td>
+<td>若ZF为1，则跳转到04001000</td>
+</tr>
+<tr>
+<td>JNE(JNZ)</td>
+<td>JNE 04001000</td>
+<td>if(ZF==0)<br>&emsp;GOTO 04001000</td>
+<td>若ZF为0，则跳转到04001000</td>
+</tr>
+<tr>
+<td>JMP</td>
+<td>JMP 04001000</td>
+<td>GOTO 04001000</td>
+<td>无条件跳转到04001000</td>
+</tr>
+<tr>
+<td>CALL</td>
+<td>CALL lstrcmp W</td>
+<td></td>
+<td>调用lstrcmp W</td>
+</tr>
+<tr>
+<td>PUSH</td>
+<td>PUSH 00000001</td>
+<td></td>
+<td>将00000001入栈</td>
+</tr>
+<tr>
+<td>POP</td>
+<td>POP EAX</td>
+<td></td>
+<td>出栈并将获取的值存入EAX</td>
+</tr>
+</tbody></table>
+<p>CMP、TEST、JE以及JNE指令可用于在汇编语言中实现条件分支。<br>一般的编程语言中，都是通过if、switch等保留字来表现条件分支的。而在汇编语言中，则是通过控制标志的CMP、TEST指令，以及根据标志完成分支的跳转类指令来实现。</p>
+<p>汇编语言中，参数是按照从后往前的顺序入栈的，实际上这方面的规则会根据CPU和编译器的不同而存在一些差异，这里只要记住“++参数是通过栈来传递++”。</p>
+<h3 id="1-5-通过汇编指令洞察程序行为"><a href="#1-5-通过汇编指令洞察程序行为" class="headerlink" title="1.5 通过汇编指令洞察程序行为"></a>1.5 通过汇编指令洞察程序行为</h3><p><em>对OllyDbg和IDA的使用去网上搜索吧，教程很多。</em></p>
+<p>逆向工程逻辑<strong>理解原则</strong>：<br>重要的部分花时间仔细理解，其余部分大概知道怎么回事就好。</p>
+<p>书中使用的Windows环境下汇编器是 <a target="_blank" rel="noopener" href="https://www.nasm.us/">NASM</a>，连接器是 ALINK。</p>
+<p>测试使用的关于Windows API的信息，在MSDN（Microsoft Developer Network）搜索。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/PWN/" rel="tag"># PWN</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># 学习笔记</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/25/3%E9%98%B2%E5%BE%A1%E6%94%BB%E5%87%BB/" rel="prev" title="3防御攻击">
+                  <i class="fa fa-chevron-left"></i> 3防御攻击
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/08/31/%E5%85%AB%E6%9C%88%E5%BA%95%E5%92%8C%E5%81%9A%E9%A2%98/" rel="next" title="八月底和做题">
+                  八月底和做题 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CG1i</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
