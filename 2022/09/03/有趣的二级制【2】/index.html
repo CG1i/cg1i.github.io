@@ -20,28 +20,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="测试记录这里测试一次文字，原生语法不支持缩进  真不习惯 页面搭建进度：整体结构完成，完成较少部分的配置，也遇到一些冲突问题，与想达到的效果不同，后续将继续美化配置整改。这里将记录部分的笔记，一些日常见闻或者说说日志。">
+    <meta name="description" content="2.在射击游戏中防止玩家作弊2.1 解读内存转储修改二进制数据（修改内存）需要使用进程内存编辑工具。（书中用的兔耳旋风是日文界面，中文系统下会乱码） 内存转储：将内存数据保存成文件。  程序在运行时，内存的数据会不断的实时变化，如果要保存某个时间点的状态（快照），就需要内存转储了。  生成内存转储过程：  打开任务管理器 右键点击目标进程名称 选择“创建转储文件”     这样系统就会生成一个扩展">
 <meta property="og:type" content="article">
-<meta property="og:title" content="测试01">
-<meta property="og:url" content="http://example.com/2022/08/20/%E6%B5%8B%E8%AF%9501/index.html">
+<meta property="og:title" content="有趣的二进制【2】">
+<meta property="og:url" content="http://example.com/2022/09/03/%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BA%8C%E7%BA%A7%E5%88%B6%E3%80%902%E3%80%91/index.html">
 <meta property="og:site_name" content="CG1i">
-<meta property="og:description" content="测试记录这里测试一次文字，原生语法不支持缩进  真不习惯 页面搭建进度：整体结构完成，完成较少部分的配置，也遇到一些冲突问题，与想达到的效果不同，后续将继续美化配置整改。这里将记录部分的笔记，一些日常见闻或者说说日志。">
+<meta property="og:description" content="2.在射击游戏中防止玩家作弊2.1 解读内存转储修改二进制数据（修改内存）需要使用进程内存编辑工具。（书中用的兔耳旋风是日文界面，中文系统下会乱码） 内存转储：将内存数据保存成文件。  程序在运行时，内存的数据会不断的实时变化，如果要保存某个时间点的状态（快照），就需要内存转储了。  生成内存转储过程：  打开任务管理器 右键点击目标进程名称 选择“创建转储文件”     这样系统就会生成一个扩展">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-20T14:37:00.000Z">
-<meta property="article:modified_time" content="2022-08-25T13:00:28.545Z">
+<meta property="og:image" content="http://example.com/images/2022/202209032137.png">
+<meta property="article:published_time" content="2022-09-03T13:36:43.000Z">
+<meta property="article:modified_time" content="2022-09-03T13:39:13.943Z">
 <meta property="article:author" content="CG1i">
-<meta property="article:tag" content="Test">
+<meta property="article:tag" content="PWN">
+<meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/2022/202209032137.png">
 
 
-<link rel="canonical" href="http://example.com/2022/08/20/%E6%B5%8B%E8%AF%9501/">
+<link rel="canonical" href="http://example.com/2022/09/03/%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BA%8C%E7%BA%A7%E5%88%B6%E3%80%902%E3%80%91/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/20/%E6%B5%8B%E8%AF%9501/","path":"2022/08/20/测试01/","title":"测试01"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/09/03/%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BA%8C%E7%BA%A7%E5%88%B6%E3%80%902%E3%80%91/","path":"2022/09/03/有趣的二级制【2】/","title":"有趣的二进制【2】"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>测试01 | CG1i</title>
+<title>有趣的二进制【2】 | CG1i</title>
   
 
 
@@ -143,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E8%AE%B0%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">测试记录</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%9C%A8%E5%B0%84%E5%87%BB%E6%B8%B8%E6%88%8F%E4%B8%AD%E9%98%B2%E6%AD%A2%E7%8E%A9%E5%AE%B6%E4%BD%9C%E5%BC%8A"><span class="nav-number">1.</span> <span class="nav-text">2.在射击游戏中防止玩家作弊</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E8%A7%A3%E8%AF%BB%E5%86%85%E5%AD%98%E8%BD%AC%E5%82%A8"><span class="nav-number">1.0.1.</span> <span class="nav-text">2.1 解读内存转储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2%E5%A6%82%E4%BD%95%E9%98%B2%E6%AD%A2%E8%BD%AF%E4%BB%B6%E8%A2%AB%E5%88%AB%E4%BA%BA%E5%88%86%E6%9E%90"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.2如何防止软件被别人分析</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -213,7 +216,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/20/%E6%B5%8B%E8%AF%9501/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/03/%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BA%8C%E7%BA%A7%E5%88%B6%E3%80%902%E3%80%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/pic01.jpg">
@@ -226,12 +229,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="测试01 | CG1i">
+      <meta itemprop="name" content="有趣的二进制【2】 | CG1i">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          测试01
+          有趣的二进制【2】
         </h1>
 
         <div class="post-meta-container">
@@ -241,15 +244,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-08-20 22:37:00" itemprop="dateCreated datePublished" datetime="2022-08-20T22:37:00+08:00">2022-08-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-25 21:00:28" itemprop="dateModified" datetime="2022-08-25T21:00:28+08:00">2022-08-25</time>
+      <time title="创建时间：2022-09-03 21:36:43 / 修改时间：21:39:13" itemprop="dateCreated datePublished" datetime="2022-09-03T21:36:43+08:00">2022-09-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -257,7 +254,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Pages-Test/" itemprop="url" rel="index"><span itemprop="name">Pages-Test</span></a>
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/PWN/" itemprop="url" rel="index"><span itemprop="name">PWN</span></a>
         </span>
     </span>
 
@@ -271,28 +272,42 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="测试记录"><a href="#测试记录" class="headerlink" title="测试记录"></a>测试记录</h3><pre><code>这里测试一次文字，原生语法不支持缩进
-</code></pre>
-<p><strong>真不习惯</strong></p>
-<p>页面搭建进度：整体结构完成，完成较少部分的配置，也遇到一些冲突问题，与想达到的效果不同，后续将继续美化配置整改。<br><strong>这里将记录部分的笔记，一些日常见闻或者说说日志。</strong></p>
-<span id="more"></span>
-
-<hr>
-<p>8/21</p>
-<p>next版本是8.12，配置了背景、圆角、标签等，因为版本问题，部分网上的配置方法部分不适用，下次需要注意。<br>标签和分类等页面还没整，后续弄好。</p>
-<hr>
-<p>8/22</p>
-<p>解决了标签、分类页，后续将配置美化一下。尝试使用<!--more-->截断首页的文，先试试效果。<br>    在翻译文件中解决了强力驱动的翻译问题，不翻译就用英文更顺眼一些。<br>    字体等细节后面慢慢整了。后续开始推一些笔记试试水。不过大部分都是word格式的，是个问题，待解决。后面看看别的框架，个人还是word格式 ╯︿╰</p>
-<hr>
-<p>8/23</p>
+        <h1 id="2-在射击游戏中防止玩家作弊"><a href="#2-在射击游戏中防止玩家作弊" class="headerlink" title="2.在射击游戏中防止玩家作弊"></a>2.在射击游戏中防止玩家作弊</h1><h3 id="2-1-解读内存转储"><a href="#2-1-解读内存转储" class="headerlink" title="2.1 解读内存转储"></a>2.1 解读内存转储</h3><p>修改二进制数据（修改内存）需要使用进程内存编辑工具。（书中用的兔耳旋风是日文界面，中文系统下会乱码）</p>
+<p>内存转储：将内存数据保存成文件。</p>
 <blockquote>
-<p>熟悉了一些markdown的语法，得用HTML代码解决一些格式问题，后面整理一下，防止忘了。貌似word格式难解决，摸了。  </p>
+<p>程序在运行时，内存的数据会不断的实时变化，如果要保存某个时间点的状态（快照），就需要内存转储了。</p>
 </blockquote>
-<hr>
-<p>8/25</p>
+<p>生成内存转储过程：</p>
+<ul>
+<li>打开任务管理器</li>
+<li>右键点击目标进程名称</li>
+<li>选择“创建转储文件”  </li>
+</ul>
+<p><img src="/images/2022/202209032137.png" alt="内存转储"></p>
+<p>这样系统就会生成一个扩展名为<code>.DMP</code>的文件。在Windows XP以及更低版本中自带一个叫Dr.Watson的内存转储工具，当进程异常终止时会将内存和简单日志保存到文件中。<br>操作系统会按照可执行文件中的内容将程序加载到内存中，但内存的数据和可执行文件中的数据并不完全一致。  </p>
+<p>转储文件可以使用++WinDbg++分析。</p>
+<p>Java程序特点：</p>
+<ul>
+<li>在编译时，源代码会被编译成字节码（一种抽象的中间语言）</li>
+<li>为各种环境分别安全能够解释和和执行字节码的虚拟机</li>
+</ul>
 <blockquote>
-<p>解决了部分字体问题，只是修改了size-base，整的看别的字也有变小的。后面再细修。可以传一些东西了。</p>
+<p>对于java程序进行分析，相当于对Java字节码进行分析。一些工具能够将字节码还原成源代码，这些工具称为反编译器（decompiler）。</p>
 </blockquote>
+<h3 id="2-2如何防止软件被别人分析"><a href="#2-2如何防止软件被别人分析" class="headerlink" title="2.2如何防止软件被别人分析"></a>2.2如何防止软件被别人分析</h3><p><strong>IsDebuggerPresent</strong>是最初级的一种反调试技术，能够检测是否 挂在了调试器的API函数，通过返回值是否为0可以判断调试器的挂载状态。<br>类似的还有一些其他的API函数，如CheckRemoteDebuggerPresent。</p>
+<p>关于其他类型的检测技术搜索关键词“anti-debug popf”和“anti-debug int2d”。</p>
+<p><strong>代码混淆</strong>让代码变得难以看懂，以防止代码被分析。一些混淆技术能够提高反编译的难度，让文件在反编译时出错。</p>
+<p>抗篡改性（tamper resistance）指系统内部结构抵御分析的能力。</p>
+<p><strong>打包器</strong>（packer）将可执行文件进行压缩，压缩后的文件依然可以直接运行。例如开源工具UPX。也有一些打包器的目的不是压缩，而是反调试，例如ASPack。</p>
+<p><strong>解包器</strong>（unpacker）将用打包器压缩的可执行文件解压缩的工具。</p>
+<p>手动解包：用调试器和反汇编器跟踪可执行文件解压缩的逻辑，并将位于内存中的解压缩后的可执行数据导出到文件的操作。</p>
+<p>软件断点：本质是调试器将断点位置的指令改写成了0xCC（int3h）。处理器遇到0xCC 指令，会通过操作系统将异常报告给调试器，因此，只要在指定位置写入0xCC，就可以在任意时间和位置中断程序运行。</p>
+<p>硬件断点：通过直接写入寄存器（DR寄存器）来实现中断程序允许并向调试器发出报告。还可以实现一些复杂的中断，例如“当向指定地址写入数据时中断”“当从指定地址读取数据时中断”等等。</p>
+<p>硬件断点设置数量有限，处理器只设计了4个硬件断点，软件断点的设置没有限制。在软件分析的过程中，打包器在向内存写入解包等候的可执行数据时，会覆盖掉其中的软件断点，因此需要使用硬件断点。</p>
+<blockquote>
+<p>无论什么软件，其本质都是处理器可以解释并指定的机器语言指令，因此“即便采取了难度再高的对策，只要能够读出组成软件的所有机器语言指令，就一定能找到破解的方法”。</p>
+</blockquote>
+<p>.NET程序：与Java类似，在编译时会生成一种MSIL（Microsoft Intermediate Language）的中间语言，并在允许时通过CLR（Common Language Runtime）转换成处理器能够解释的机器语言。因此，对.NET的分析就相当于对MSIL的分析，反编译器可使用<a target="_blank" rel="noopener" href="https://www.red-gate.com/products/dotnet-development/reflector/">.NET Reflector</a>。</p>
 
     </div>
 
@@ -302,20 +317,21 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Test/" rel="tag"># Test</a>
+              <a href="/tags/PWN/" rel="tag"># PWN</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># 学习笔记</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/08/18/hello-world/" rel="prev" title="Hello World">
-                  <i class="fa fa-chevron-left"></i> Hello World
+                <a href="/2022/08/31/%E5%85%AB%E6%9C%88%E5%BA%95%E5%92%8C%E5%81%9A%E9%A2%98/" rel="prev" title="八月底和做题">
+                  <i class="fa fa-chevron-left"></i> 八月底和做题
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/08/23/%E9%83%A8%E5%88%86%E6%A0%BC%E5%BC%8F%E8%AF%AD%E6%B3%95/" rel="next" title="Hexo格式语法">
-                  Hexo格式语法 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/09/03/%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E3%80%903%E3%80%91/" rel="next" title="有趣的二进制【3】">
+                  有趣的二进制【3】 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
