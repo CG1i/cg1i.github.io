@@ -357,6 +357,39 @@
       </tags>
   </entry>
   <entry>
+    <title>测试01</title>
+    <url>/2022/08/20/%E6%B5%8B%E8%AF%9501/</url>
+    <content><![CDATA[<h3 id="测试记录"><a href="#测试记录" class="headerlink" title="测试记录"></a>测试记录</h3><pre><code>这里测试一次文字，原生语法不支持缩进
+</code></pre>
+<p><strong>真不习惯</strong></p>
+<p>页面搭建进度：整体结构完成，完成较少部分的配置，也遇到一些冲突问题，与想达到的效果不同，后续将继续美化配置整改。<br><strong>这里将记录部分的笔记，一些日常见闻或者说说日志。</strong></p>
+<span id="more"></span>
+
+<hr>
+<p>8/21</p>
+<p>next版本是8.12，配置了背景、圆角、标签等，因为版本问题，部分网上的配置方法部分不适用，下次需要注意。<br>标签和分类等页面还没整，后续弄好。</p>
+<hr>
+<p>8/22</p>
+<p>解决了标签、分类页，后续将配置美化一下。尝试使用<!--more-->截断首页的文，先试试效果。<br>    在翻译文件中解决了强力驱动的翻译问题，不翻译就用英文更顺眼一些。<br>    字体等细节后面慢慢整了。后续开始推一些笔记试试水。不过大部分都是word格式的，是个问题，待解决。后面看看别的框架，个人还是word格式 ╯︿╰</p>
+<hr>
+<p>8/23</p>
+<blockquote>
+<p>熟悉了一些markdown的语法，得用HTML代码解决一些格式问题，后面整理一下，防止忘了。貌似word格式难解决，摸了。  </p>
+</blockquote>
+<hr>
+<p>8/25</p>
+<blockquote>
+<p>解决了部分字体问题，只是修改了size-base，整的看别的字也有变小的。后面再细修。可以传一些东西了。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Pages-Test</category>
+      </categories>
+      <tags>
+        <tag>Test</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>有趣的二进制【5】</title>
     <url>/2022/09/09/%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E3%80%905%E3%80%91/</url>
     <content><![CDATA[<h1 id="5-使用工具探索更广阔的的世界"><a href="#5-使用工具探索更广阔的的世界" class="headerlink" title="5 使用工具探索更广阔的的世界"></a>5 使用工具探索更广阔的的世界</h1><blockquote>
@@ -366,6 +399,8 @@
 <ul>
 <li><a href="https://www.rapid7.com/products/metasploit/">Metasploit</a></li>
 </ul>
+<span id="more"></span>
+
 <p>各个安全漏洞的信息都在一个叫做<a href="https://www.cve.org/">CVE</a>（Common Vulnerabilities and Exposures）的数据库中进行统一管理。<br>其中每一条漏洞都被编号，格式如CVE-YYYY-NNNN（其中YYYY为年份，NNNN为序号）。根据漏洞编号，可以从CVE的网站上搜索到以下信息：</p>
 <ul>
 <li>对漏洞的描述</li>
@@ -437,36 +472,23 @@
       </tags>
   </entry>
   <entry>
-    <title>测试01</title>
-    <url>/2022/08/20/%E6%B5%8B%E8%AF%9501/</url>
-    <content><![CDATA[<h3 id="测试记录"><a href="#测试记录" class="headerlink" title="测试记录"></a>测试记录</h3><pre><code>这里测试一次文字，原生语法不支持缩进
-</code></pre>
-<p><strong>真不习惯</strong></p>
-<p>页面搭建进度：整体结构完成，完成较少部分的配置，也遇到一些冲突问题，与想达到的效果不同，后续将继续美化配置整改。<br><strong>这里将记录部分的笔记，一些日常见闻或者说说日志。</strong></p>
+    <title>网页浏览优化</title>
+    <url>/2022/09/16/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h1 id="网页优化"><a href="#网页优化" class="headerlink" title="网页优化"></a>网页优化</h1><p>&emsp;&emsp;起因是公司里用来查资料的云主机配置很低——只有2核4G，也就只能百度一下。但如果要再登个微信，开个word，就开不了几个网页了，万一打开的博客还加载了一堆特效，能放PPT都是好的了。 以前学的一点网页的知识全还回去了，于是就记录一下。</p>
 <span id="more"></span>
 
-<hr>
-<p>8/21</p>
-<p>next版本是8.12，配置了背景、圆角、标签等，因为版本问题，部分网上的配置方法部分不适用，下次需要注意。<br>标签和分类等页面还没整，后续弄好。</p>
-<hr>
-<p>8/22</p>
-<p>解决了标签、分类页，后续将配置美化一下。尝试使用<!--more-->截断首页的文，先试试效果。<br>    在翻译文件中解决了强力驱动的翻译问题，不翻译就用英文更顺眼一些。<br>    字体等细节后面慢慢整了。后续开始推一些笔记试试水。不过大部分都是word格式的，是个问题，待解决。后面看看别的框架，个人还是word格式 ╯︿╰</p>
-<hr>
-<p>8/23</p>
+<p>对于CSDN这类会开动图背景的建议：</p>
 <blockquote>
-<p>熟悉了一些markdown的语法，得用HTML代码解决一些格式问题，后面整理一下，防止忘了。貌似word格式难解决，摸了。  </p>
+<p>按 F12 打开开发者选项，在Elements元素的Styles样式里找到 <code>body&#123; background: url(xxxx) &#125;</code>项，光标移至background参数前，将自动出现的√点击取消。  </p>
 </blockquote>
-<hr>
-<p>8/25</p>
-<blockquote>
-<p>解决了部分字体问题，只是修改了size-base，整的看别的字也有变小的。后面再细修。可以传一些东西了。</p>
-</blockquote>
+<p>由于是在打开网页后进行操作的，在按F12时可能就已经在卡了，所以需要慢一点，给浏览器一点.反.映.的.时.间。</p>
+<p>对于一些开了动态效果的博客，考虑<strong>直接提前关闭浏览器的JavaScript</strong>，但存在网页部分功能无法使用的后果。貌似这并不会影响到背景动图。</p>
 ]]></content>
       <categories>
-        <category>Pages-Test</category>
+        <category>Web</category>
       </categories>
       <tags>
-        <tag>Test</tag>
+        <tag>web优化</tag>
       </tags>
   </entry>
   <entry>
