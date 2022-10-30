@@ -20,29 +20,39 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="语法技巧以及HTML代码 这里记录一些我没记住的md语法以及格式代码，基本的md语法教程都很容易搜到，后面一些用到了的语法格式我也会继续在这篇里补充更新，所有的语法效果都会在对应章节使用。  缩进&amp;emsp;&amp;emsp;markdown不能用tab缩进就很难受，搜了一下，要使用HTML代码。   &amp;emsp;&amp;emsp;用 &amp;emsp; 或 &amp;#8195; (注意有分号)可以占两个">
+    <meta name="description" content="Burp的初始设置&amp;emsp;&amp;emsp;urpsuite是一个用于攻击测试web应用程序的集成平台，包含许多工具。由Java语言编写，可以添加插件工具辅助扩展功能。官网提供的社区版是免费的，有功能限制，但基本够用。官网链接 &amp;emsp;&amp;emsp;从下载到安装很基础就不记录了，都是下一步确定。老版本的软件可能需要先安装Java环境，而现在新版基本上都不需要了。社区版后安装直接可以使用，而专业版需">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo格式语法">
-<meta property="og:url" content="http://example.com/2022/08/23/%E9%83%A8%E5%88%86%E6%A0%BC%E5%BC%8F%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:title" content="Burp的初始设置">
+<meta property="og:url" content="http://example.com/2022/10/30/Burp%E7%9A%84%E5%88%9D%E5%A7%8B%E8%AE%BE%E7%BD%AE/index.html">
 <meta property="og:site_name" content="CG1i&#39; Blog">
-<meta property="og:description" content="语法技巧以及HTML代码 这里记录一些我没记住的md语法以及格式代码，基本的md语法教程都很容易搜到，后面一些用到了的语法格式我也会继续在这篇里补充更新，所有的语法效果都会在对应章节使用。  缩进&amp;emsp;&amp;emsp;markdown不能用tab缩进就很难受，搜了一下，要使用HTML代码。   &amp;emsp;&amp;emsp;用 &amp;emsp; 或 &amp;#8195; (注意有分号)可以占两个">
+<meta property="og:description" content="Burp的初始设置&amp;emsp;&amp;emsp;urpsuite是一个用于攻击测试web应用程序的集成平台，包含许多工具。由Java语言编写，可以添加插件工具辅助扩展功能。官网提供的社区版是免费的，有功能限制，但基本够用。官网链接 &amp;emsp;&amp;emsp;从下载到安装很基础就不记录了，都是下一步确定。老版本的软件可能需要先安装Java环境，而现在新版基本上都不需要了。社区版后安装直接可以使用，而专业版需">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-23T14:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-31T13:39:26.015Z">
+<meta property="og:image" content="http://example.com/images/2022/202210301109.png">
+<meta property="og:image" content="http://example.com/images/2022/202210301110.png">
+<meta property="og:image" content="http://example.com/images/2022/202210301111.png">
+<meta property="og:image" content="http://example.com/images/2022/202210301104.png">
+<meta property="og:image" content="http://example.com/images/2022/202210301105.png">
+<meta property="og:image" content="http://example.com/images/2022/202210301106.png">
+<meta property="og:image" content="http://example.com/images/2022/202210301107.png">
+<meta property="og:image" content="http://example.com/images/2022/202210301108.png">
+<meta property="og:image" content="http://example.com/images/2022/202210301608.png">
+<meta property="article:published_time" content="2022-10-30T01:57:37.000Z">
+<meta property="article:modified_time" content="2022-10-30T08:19:54.757Z">
 <meta property="article:author" content="CG1i">
-<meta property="article:tag" content="Test">
-<meta property="article:tag" content="md语法">
+<meta property="article:tag" content="web工具">
+<meta property="article:tag" content="Burpsuite">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/2022/202210301109.png">
 
 
-<link rel="canonical" href="http://example.com/2022/08/23/%E9%83%A8%E5%88%86%E6%A0%BC%E5%BC%8F%E8%AF%AD%E6%B3%95/">
+<link rel="canonical" href="http://example.com/2022/10/30/Burp%E7%9A%84%E5%88%9D%E5%A7%8B%E8%AE%BE%E7%BD%AE/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/08/23/%E9%83%A8%E5%88%86%E6%A0%BC%E5%BC%8F%E8%AF%AD%E6%B3%95/","path":"2022/08/23/部分格式语法/","title":"Hexo格式语法"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/30/Burp%E7%9A%84%E5%88%9D%E5%A7%8B%E8%AE%BE%E7%BD%AE/","path":"2022/10/30/Burp的初始设置/","title":"Burp的初始设置"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hexo格式语法 | CG1i' Blog</title>
+<title>Burp的初始设置 | CG1i' Blog</title>
   
 
 
@@ -145,7 +155,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95%E6%8A%80%E5%B7%A7%E4%BB%A5%E5%8F%8AHTML%E4%BB%A3%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">语法技巧以及HTML代码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%A9%E8%BF%9B"><span class="nav-number">1.1.</span> <span class="nav-text">缩进</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B1%85%E4%B8%AD"><span class="nav-number">1.2.</span> <span class="nav-text">居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#markdown%E7%9A%84%E8%AF%AD%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">markdown的语法</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Burp%E7%9A%84%E5%88%9D%E5%A7%8B%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Burp的初始设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%90%86"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%8C%85%E4%B8%AD%E6%96%87"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">数据包中文</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -218,7 +228,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/23/%E9%83%A8%E5%88%86%E6%A0%BC%E5%BC%8F%E8%AF%AD%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/30/Burp%E7%9A%84%E5%88%9D%E5%A7%8B%E8%AE%BE%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/pic01.jpg">
@@ -231,12 +241,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hexo格式语法 | CG1i' Blog">
+      <meta itemprop="name" content="Burp的初始设置 | CG1i' Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo格式语法
+          Burp的初始设置
         </h1>
 
         <div class="post-meta-container">
@@ -246,15 +256,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-08-23 22:00:00" itemprop="dateCreated datePublished" datetime="2022-08-23T22:00:00+08:00">2022-08-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-31 21:39:26" itemprop="dateModified" datetime="2022-08-31T21:39:26+08:00">2022-08-31</time>
+      <time title="创建时间：2022-10-30 09:57:37 / 修改时间：16:19:54" itemprop="dateCreated datePublished" datetime="2022-10-30T09:57:37+08:00">2022-10-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -262,7 +266,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Pages-Test/" itemprop="url" rel="index"><span itemprop="name">Pages-Test</span></a>
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">软件工具</span></a>
         </span>
     </span>
 
@@ -276,37 +280,31 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="语法技巧以及HTML代码"><a href="#语法技巧以及HTML代码" class="headerlink" title="语法技巧以及HTML代码"></a>语法技巧以及HTML代码</h3><blockquote>
-<p>这里记录一些我没记住的md语法以及格式代码，基本的md语法教程都很容易搜到，后面一些用到了的语法格式我也会继续在这篇里补充更新，所有的语法效果都会在对应章节使用。</p>
-</blockquote>
-<h4 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h4><p>&emsp;&emsp;markdown不能用tab缩进就很难受，搜了一下，要使用HTML代码。  </p>
-<p>&emsp;&emsp;用 <code>&amp;emsp;</code> 或 <code>&amp;#8195;</code> (注意有分号)可以占两个空格，连用两个就可空四个空格，达到中文缩进的效果。</p>
-<p>&emsp;&emsp;另外，<code>&amp;ensp;</code> 或 <code>&amp;#8194;</code> 可以占一个空格，连用四个也是一样的。 </p>
-<p>&emsp;&emsp;不换行空格用：<code>&amp;nbsp;</code> 或 <code>&amp;#160;</code> 也是占一格。</p>
+        <h1 id="Burp的初始设置"><a href="#Burp的初始设置" class="headerlink" title="Burp的初始设置"></a>Burp的初始设置</h1><p>&emsp;&emsp;urpsuite是一个用于攻击测试web应用程序的集成平台，包含许多工具。由Java语言编写，可以添加插件工具辅助扩展功能。官网提供的社区版是免费的，有功能限制，但基本够用。<a target="_blank" rel="noopener" href="https://portswigger.net/">官网链接</a></p>
+<p>&emsp;&emsp;从下载到安装很基础就不记录了，都是下一步确定。老版本的软件可能需要先安装Java环境，而现在新版基本上都不需要了。社区版后安装直接可以使用，而专业版需要付费注册激活。这里拿网上仅供学习的版本演示。</p>
 <span id="more"></span>
 
-
-<h4 id="居中"><a href="#居中" class="headerlink" title="居中"></a>居中</h4><p>居中对齐的排布还是用HTML。（以后就直接写HTML算了）</p>
-<pre><code>用 &lt;center&gt; 和 &lt;/center&gt; 就可以居中对齐
-</code></pre>
-<center>或者</center>  
-  
-<pre><code>用&lt;p align=&quot;center&quot;&gt; ... &lt;/p&gt;居中
-</code></pre>
-<h4 id="markdown的语法"><a href="#markdown的语法" class="headerlink" title="markdown的语法"></a>markdown的语法</h4><p><strong>代码效果</strong></p>
-<p>使用反引号 ` 包含住需要展示的code，就可以出现<code>code</code>展示效果。</p>
-<pre><code>使用tab制表符可以实现代码块效果。
-</code></pre>
-<p><strong>区块</strong></p>
-<blockquote>
-<p>段落开头使用右尖括号<code>&gt;</code>,再跟一个空格可以引用区块</p>
-<blockquote>
-<p>区块可以嵌套，多一个 <code>&gt;</code> 就多一层</p>
-<blockquote>
-<p>这是最后一层，使用了 <code>&gt;&gt;&gt;</code></p>
-</blockquote>
-</blockquote>
-</blockquote>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>正常安装的流程，然后打开pro版burp就会提示输入注册key,输入自己的key，在下一步。<br>这里是将注册机中的license填入，在下一步。</p>
+<p><img src="/images/2022/202210301109.png" alt="burp"></p>
+<p>选择手动激活（Manual activation）</p>
+<p><img src="/images/2022/202210301110.png" alt="burp"></p>
+<p>复制激活请求到注册机中，获得激活响应，在粘贴到burp中，然后下一步</p>
+<p><img src="/images/2022/202210301111.png" alt="burp"></p>
+<p>激活步骤就基本完成了。</p>
+<h4 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h4><p>使用谷歌浏览器，设置代理是在系统代理那里，可以走谷歌浏览器的系统设置或者直接找Windows系统代理。<br>使用火狐浏览器，则是浏览器自身的代理设置，可以找火狐浏览器的网络设置或者使用代理插件工具。这里记录一下火狐浏览器。</p>
+<p>在火狐浏览器里手动配置代理，或者安装代理插件，设置代理地址127.0.0.1:8080。</p>
+<p>导入证书：<br>打开burp以及浏览器代理，在浏览器地址栏输入<code>http://burp</code> ，点击右上角CA Certificate<br><img src="/images/2022/202210301104.png" alt="burp"></p>
+<p>下载保存cacert证书文件</p>
+<p><img src="/images/2022/202210301105.png" alt="burp"></p>
+<p>打开火狐浏览器设置，在【隐私与安全】中找到【查看证书】</p>
+<p><img src="/images/2022/202210301106.png" alt="burp"></p>
+<p>然后选择导入证书，选择刚刚下载保存的证书文件</p>
+<p><img src="/images/2022/202210301107.png" alt="burp"></p>
+<p>记得勾选信任由此证书颁发机构来标识网站</p>
+<p><img src="/images/2022/202210301108.png" alt="burp"></p>
+<p>然后确定确定，基本完成证书导入。</p>
+<h4 id="数据包中文"><a href="#数据包中文" class="headerlink" title="数据包中文"></a>数据包中文</h4><p>burp抓取数据包中文有时是乱码，可以通过设置解决：<br>在用户选择(User options)中,选择显示(Display)。根据需求设置字体，以及字符编码。</p>
+<p><img src="/images/2022/202210301608.png" alt="burp"></p>
 
     </div>
 
@@ -316,22 +314,19 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Test/" rel="tag"># Test</a>
-              <a href="/tags/md%E8%AF%AD%E6%B3%95/" rel="tag"># md语法</a>
+              <a href="/tags/web%E5%B7%A5%E5%85%B7/" rel="tag"># web工具</a>
+              <a href="/tags/Burpsuite/" rel="tag"># Burpsuite</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/08/20/%E6%B5%8B%E8%AF%9501/" rel="prev" title="测试01">
-                  <i class="fa fa-chevron-left"></i> 测试01
+                <a href="/2022/09/16/%E7%BD%91%E9%A1%B5%E6%B5%8F%E8%A7%88%E4%BC%98%E5%8C%96/" rel="prev" title="网页浏览优化">
+                  <i class="fa fa-chevron-left"></i> 网页浏览优化
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/08/31/%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BA%8C%E8%BF%9B%E5%88%B6%E3%80%901%E3%80%91/" rel="next" title="有趣的二进制【1】">
-                  有趣的二进制【1】 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
